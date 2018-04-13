@@ -7,7 +7,6 @@ let totalMonthlySalary = 0;
 function onReady() {
     console.log('in jquery');
     $('#submitButton').on('click', submitClickHandler);
-    $('.deleteButton').on('click', deleteClickHandler);
 }
 
 function submitClickHandler() {
@@ -15,9 +14,11 @@ function submitClickHandler() {
     addNewEmployee();
 }
 
+
+
 function deleteClickHandler() {
     console.log('deletebutton clicked');
-    
+    $(this).parent().parent().remove();
 }
 
 function addNewEmployee() {
@@ -46,6 +47,7 @@ function addNewEmployee() {
             '</tr>');
             updateTotalMonthlySalary(newEmployeeAnnualSalary);
             clearInputs();
+            $('.deleteButton').on('click', deleteClickHandler);
     }
 }
 
