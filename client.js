@@ -30,10 +30,21 @@ function addNewEmployee() {
         '<td>' + newEmployeeTitle + '</td>' +
         '<td>' + newEmployeeAnnualSalary + '</td>' +
     '</tr>');
-    updateTotalMonthlySalary();
+    updateTotalMonthlySalary(newEmployeeAnnualSalary);
+    clearInputs();
 }
 
-function updateTotalMonthlySalary() {
+function updateTotalMonthlySalary(newEmployeeAnnualSalary) {
+    totalMonthlySalary += newEmployeeAnnualSalary/12;
+    console.log(totalMonthlySalary);
     console.log('function updateMonthlySalary called');
 
+}
+
+function clearInputs() {
+    $('#firstNameInput').empty();
+    $('#lastNameInput').empty();
+    $('#idInput').empty();
+    $('#titleInput').empty();
+    $('#annualSalaryInput').empty();
 }
