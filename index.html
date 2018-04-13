@@ -9,7 +9,47 @@
     <script src="client.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Weekend Challenge 1: Salary Calculator</h1>
+<body> 
+    <div id="billboard">
+            <h1>Salary Calcualtor</h1>
+    </div>
+    <div id="inputField">
+        <h2>Add Employee</h2>
+        <input class="employeeInfoInput" placeholder="First Name" type="text">
+        <input class="employeeInfoInput" placeholder="Last Name" type="text">
+        <input class="employeeInfoInput" placeholder="ID" type="text">
+        <input class="employeeInfoInput" placeholder="Title" type="text">
+        <input class="employeeInfoInput" placeholder="Annual Salary" type="text">
+        <button id="submitButton">Submit</button>
+    </div>
+    <div id="outputField">
+        <h2>Employees</h2>
+        <div>
+            <table>
+                <th>
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>ID</td>
+                        <td>Title</td>
+                        <td>Annual Salary</td>
+                    </tr>
+                </th>
+                <tbody id="employeeInfoTable">
+                    <tr>
+                        <td>Jen</td>
+                        <td>Barber</td>
+                        <td>4521</td>
+                        <td>Team Lead</td>
+                        <td>80,000</td>
+                    </tr>
+                    <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h2 id="totalMonthySalaryOutput">Total Monthly</h2>
+        </div>
+    </div>
 </body>
 </html>
