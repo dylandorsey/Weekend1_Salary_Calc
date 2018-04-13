@@ -38,10 +38,7 @@ function updateTotalMonthlySalary(newEmployeeAnnualSalary) {
     totalMonthlySalary += newEmployeeAnnualSalary/12;
     console.log(totalMonthlySalary);
     console.log('function updateMonthlySalary called');
-        $('#totalMonthlySalaryOutput').text('');
-
-    // $('#totalMonthlySalaryOutput').val('Total Monthly: $' + totalMonthlySalary);
-
+    $('#totalMonthlySalaryOutput').text('Total Monthly: $' + totalMonthlySalary);
 }
 
 function clearInputs() {
