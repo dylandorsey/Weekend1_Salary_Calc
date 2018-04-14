@@ -2,23 +2,26 @@ console.log('in js');
 
 $(document).ready(onReady);
 
+// declare global variables
 let totalMonthlySalary = 0;
 let employeeArray = [];
+
 
 function onReady() {
     console.log('in jquery');
     $('#submitButton').on('click', submitClickHandler);
-}
+}// end function onReady
 
 function submitClickHandler() {
     console.log('addemployee clicked');
     addNewEmployee();
-}
+}// end function submitClickHandler
 
+// !this function needs to interact with employeeArray
 function deleteClickHandler() {
     console.log('deletebutton clicked');
     $(this).parent().parent().remove();
-}
+}// end function deleteClickHandler
 
 function addNewEmployee() {
     console.log('function addNewEmployee called');
@@ -36,19 +39,10 @@ function addNewEmployee() {
     }
     // case: all input fields complete -> proceeds processing data
     else {
+        // remove empty fields warning
         $('#completeAllFieldsWarning').empty();
-        $('#employeeInfoTable').append(                
-            '<tr>' + 
-                '<td>' + newEmployeeFirstName + '</td>' +
-                '<td>' + newEmployeeLastName + '</td>' +
-                '<td>' + newEmployeeID + '</td>' +
-                '<td>' + newEmployeeTitle + '</td>' +
-                '<td>' + newEmployeeAnnualSalary + '</td>' +
-                '<td><button class="deleteButton">Delete</button></td>' + 
-            '</tr>');
-            updateTotalMonthlySalary(newEmployeeAnnualSalary);
-            clearInputs();
-            $('.deleteButton').on('click', deleteClickHandler);12
+        
+        // construct new Employee from input data
         class Employee {
             constructor (newEmployeeFirstName, newEmployeeLastName, newEmployeeID, newEmployeeTitle, newEmployeeAnnualSalary){
                 this.firstName= newEmployeeFirstName;
@@ -57,13 +51,54 @@ function addNewEmployee() {
                 this.employeeTitle=newEmployeeTitle;
                 this.employeeAnnualSalary=newEmployeeAnnualSalary;
             }
-        }
+        }// end new Employee constructor
+
+        // push new Employee to employeeArray
         let newEmployee = new Employee(newEmployeeFirstName, newEmployeeLastName, newEmployeeID, newEmployeeTitle, newEmployeeAnnualSalary);
+        
         employeeArray.push(newEmployee);
+
+        // confirm new Employee logs correctly
         console.log(employeeArray);
+
+        $('#employeeInfoTable').empty();
+
+        // append employeeArray to the DOM
+        for (let i = 0; i < employeeArray.length; i++) {
+            $('#employeeInfoTable').append(                
+                '<tr>' + 
+                    '<td>' + employeeArray[i].firstName + '</td>' +
+                    '<td>' + employeeArray[i].lastName + '</td>' +
+                    '<td>' + employeeArray[i].employeeID + '</td>' +
+                    '<td>' + employeeArray[i].employeeTitle + '</td>' +
+                    '<td>' + employeeArray[i].employeeAnnualSalary + '</td>' +
+                    '<td><button class="deleteButton">Delete</button></td>' + 
+                '</tr>');
+        }
+
+        //BASE MODE TABLE APPEND
+        // $('#employeeInfoTable').append(                
+        //     '<tr>' + 
+        //         '<td>' + newEmployeeFirstName + '</td>' +
+        //         '<td>' + newEmployeeLastName + '</td>' +
+        //         '<td>' + newEmployeeID + '</td>' +
+        //         '<td>' + newEmployeeTitle + '</td>' +
+        //         '<td>' + newEmployeeAnnualSalary + '</td>' +
+        //         '<td><button class="deleteButton">Delete</button></td>' + 
+        //     '</tr>');
+
+        // clear inputs
+        clearInputs();
+        
+        // ! this function needs revision to work from employeeArray
+        updateTotalMonthlySalary(newEmployeeAnnualSalary);
+
+
+        $('.deleteButton').on('click', deleteClickHandler);
     }
 }
 
+// !convert this function to work from data stored in the employeeArray
 function updateTotalMonthlySalary(newEmployeeAnnualSalary) {
     totalMonthlySalary += newEmployeeAnnualSalary/12;
     console.log(totalMonthlySalary);
@@ -72,7 +107,8 @@ function updateTotalMonthlySalary(newEmployeeAnnualSalary) {
     if (totalMonthlySalary > 20000) {
         $('#totalMonthlySalaryOutput').css('background-color', 'red');
     }
-}
+
+}// end function updateTotalMonthlySalary
 
 function clearInputs() {
     $('#firstNameInput').val('');
@@ -80,12 +116,10 @@ function clearInputs() {
     $('#idInput').val('');
     $('#titleInput').val('');
     $('#annualSalaryInput').val('');
-}
+}// end function clearInputs
 
 
 
-// submit button pushed
-// constructs new employee
-// pushes new employee to employeeArray
+
 // displays objects from employeeArray on the DOM
 // calculates salary info using data from the employeeArray
