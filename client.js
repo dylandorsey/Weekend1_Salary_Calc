@@ -75,39 +75,27 @@ function addNewEmployee() {
                     '<td><button class="deleteButton">Delete</button></td>' + 
                 '</tr>');
         }
-
-        //BASE MODE TABLE APPEND
-        // $('#employeeInfoTable').append(                
-        //     '<tr>' + 
-        //         '<td>' + newEmployeeFirstName + '</td>' +
-        //         '<td>' + newEmployeeLastName + '</td>' +
-        //         '<td>' + newEmployeeID + '</td>' +
-        //         '<td>' + newEmployeeTitle + '</td>' +
-        //         '<td>' + newEmployeeAnnualSalary + '</td>' +
-        //         '<td><button class="deleteButton">Delete</button></td>' + 
-        //     '</tr>');
-
         // clear inputs
         clearInputs();
         
         // ! this function needs revision to work from employeeArray
-        updateTotalMonthlySalary(newEmployeeAnnualSalary);
-
+        updateTotalMonthlySalary();
 
         $('.deleteButton').on('click', deleteClickHandler);
     }
 }
 
 // !convert this function to work from data stored in the employeeArray
-function updateTotalMonthlySalary(newEmployeeAnnualSalary) {
-    totalMonthlySalary += newEmployeeAnnualSalary/12;
-    console.log(totalMonthlySalary);
+function updateTotalMonthlySalary() {
+    totalMonthlySalary = 0;
+    for (let i = 0; i < employeeArray.length; i++) {
+        totalMonthlySalary+= (employeeArray[i].employeeAnnualSalary)/12;  
+    }
     console.log('function updateMonthlySalary called');
     $('#totalMonthlySalaryOutput').text('Total Monthly: $' + totalMonthlySalary);
     if (totalMonthlySalary > 20000) {
         $('#totalMonthlySalaryOutput').css('background-color', 'red');
     }
-
 }// end function updateTotalMonthlySalary
 
 function clearInputs() {
