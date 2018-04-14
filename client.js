@@ -3,6 +3,7 @@ console.log('in js');
 $(document).ready(onReady);
 
 let totalMonthlySalary = 0;
+let employeeArray = [];
 
 function onReady() {
     console.log('in jquery');
@@ -13,8 +14,6 @@ function submitClickHandler() {
     console.log('addemployee clicked');
     addNewEmployee();
 }
-
-
 
 function deleteClickHandler() {
     console.log('deletebutton clicked');
@@ -29,11 +28,13 @@ function addNewEmployee() {
     let newEmployeeID = $('#idInput').val();
     let newEmployeeTitle = $('#titleInput').val();
     let newEmployeeAnnualSalary = $('#annualSalaryInput').val();
+    // case: any of input fields are blank -> does not submit, requires complete inputs
     if (newEmployeeFirstName == '' || newEmployeeLastName == '' || newEmployeeID == '' 
     || newEmployeeTitle == '' || newEmployeeAnnualSalary == '') {
         $('#completeAllFieldsWarning').empty();
         $('#completeAllFieldsWarning').append('<p class="warning">Please complete all fields!</p>');
     }
+    // case: all input fields complete -> proceeds processing data
     else {
         $('#completeAllFieldsWarning').empty();
         $('#employeeInfoTable').append(                
@@ -47,7 +48,19 @@ function addNewEmployee() {
             '</tr>');
             updateTotalMonthlySalary(newEmployeeAnnualSalary);
             clearInputs();
-            $('.deleteButton').on('click', deleteClickHandler);
+            $('.deleteButton').on('click', deleteClickHandler);12
+        class Employee {
+            constructor (newEmployeeFirstName, newEmployeeLastName, newEmployeeID, newEmployeeTitle, newEmployeeAnnualSalary){
+                this.firstName= newEmployeeFirstName;
+                this.lastName=newEmployeeLastName;
+                this.employeeID=newEmployeeID;
+                this.employeeTitle=newEmployeeTitle;
+                this.employeeAnnualSalary=newEmployeeAnnualSalary;
+            }
+        }
+        let newEmployee = new Employee(newEmployeeFirstName, newEmployeeLastName, newEmployeeID, newEmployeeTitle, newEmployeeAnnualSalary);
+        employeeArray.push(newEmployee);
+        console.log(employeeArray);
     }
 }
 
@@ -68,3 +81,11 @@ function clearInputs() {
     $('#titleInput').val('');
     $('#annualSalaryInput').val('');
 }
+
+
+
+// submit button pushed
+// constructs new employee
+// pushes new employee to employeeArray
+// displays objects from employeeArray on the DOM
+// calculates salary info using data from the employeeArray
