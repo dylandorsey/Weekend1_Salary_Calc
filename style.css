@@ -1,7 +1,64 @@
-h1 {
+body {
+    font-family: sans-serif;
+    font: helvetica;
+
+}
+
+#billboard {
     background-color: lightgrey;
 }
 
 .deleteButton {
     display: inline-block;
+
+}
+
+#footerRow {
+    background-color: #A9A9A9;
+}
+
+input {
+    display: block;
+    width: 50%;
+}
+
+#inputField {
+    display: block;
+    width: 500px;
+}
+
+#outputField {
+    display: block;
+    width: 500px;
+}
+
+#submitButton {
+    float: left;
+}
+
+#submitButtonDiv {
+    display: block;
+    width: 500px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    height: 20px;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #D3D3D3
+}
+
+th {
+    text-align: left;
+    background-color: #A9A9A9; 
+}
+
+.warning {
+    color: red;
 }
