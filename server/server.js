@@ -14,7 +14,7 @@ const PORT = 5000;
 // });
 
 // app.use catches more than .get
-app.use(express.static('/server/public/'));
+app.use(express.static('server/public/'));
 
 app.get('/hey', function (req, res) {
     res.send('Howdy, partner');
