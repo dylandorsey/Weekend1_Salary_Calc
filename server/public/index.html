@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,44 +10,48 @@
     <script src="client.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-    <div id="billboard">
-            <h1>Salary Calcualtor</h1>
-    </div>
-    <div id="inputField">
-        <h2>Add Employee</h2>
-        <input id="firstNameInput" class="employeeInfoInput" placeholder="First Name" type="text">
-        <input id="lastNameInput" class="employeeInfoInput" placeholder="Last Name" type="text">
-        <input id="idInput" class="employeeInfoInput" placeholder="ID" type="number">
-        <input id="titleInput" class="employeeInfoInput" placeholder="Title" type="text">
-        <input id="annualSalaryInput" class="employeeInfoInput" placeholder="Annual Salary" type="number">
-        <div id="submitButtonDiv">
-            <button id="submitButton">Submit</button>
-            <div id="completeAllFieldsWarning"></div>
-        </div>
-    </div>
-    <div id="outputField">
-        <h2>Employees</h2>
-        <div>
-            <table>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Annual Salary</th>
-                </tr>
-                <tbody id="employeeInfoTable">
 
-                </tbody>
-                <tr>
-                        <td id="footerRow" colspan="5"></td>
-                </tr>
-            </table>
+<body>
+    <main>
+        <header id="billboard">
+            <h1>Salary Calcualtor</h1>
+        </header>
+        <div id="inputField">
+            <h2>Add Employee</h2>
+            <input id="firstNameInput" class="employeeInfoInput" placeholder="First Name" type="text">
+            <input id="lastNameInput" class="employeeInfoInput" placeholder="Last Name" type="text">
+            <input id="idInput" class="employeeInfoInput" placeholder="ID" type="number">
+            <input id="titleInput" class="employeeInfoInput" placeholder="Title" type="text">
+            <input id="annualSalaryInput" class="employeeInfoInput" placeholder="Annual Salary" type="number">
+            <div id="submitButtonDiv">
+                <button id="submitButton">Submit</button>
+                <div id="completeAllFieldsWarning"></div>
+            </div>
         </div>
-        <div>
-            <h2 id="totalMonthlySalaryOutput">Total Monthly:</h2>
+        <div id="outputField">
+            <h2>Employees</h2>
+            <div>
+                <table>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                    </tr>
+                    <tbody id="employeeInfoTable">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-right">Total Monthly Cost:</td>
+                            <td colspan="2" id="out-monthly-cost"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
+
 </html>
